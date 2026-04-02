@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RC Bookkeeping | Honest Bookkeeping from Someone Who Gets It</title>
     <meta name="description" content="Rachel Cooper Bookkeeping. 11 years serving Oregon business owners with honest, reliable bookkeeping services.">
+    <meta name="theme-color" content="#375257">
 
     <!-- Open Graph / Social Preview -->
     <meta property="og:title" content="RC Bookkeeping | Rachel Cooper">
@@ -18,10 +19,30 @@
     <meta name="twitter:description" content="Honest bookkeeping from someone who understands your world -- because I grew up in it.">
     <meta name="twitter:image" content="https://rc-bookkeeping.netlify.app/Rachels%20Photos/Rachel%20Brand%20Photo%20(Hero%20Image)">
 
+    <!-- Preconnect to Google Fonts (DNS + TLS handshake early) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="Rachels Photos/Rachel Brand Photo (Hero Image)" fetchpriority="high">
+
+    <!-- Google Fonts: non-render-blocking pattern -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet"></noscript>
+
     <style>
+        /* Font-display swap fallback (in case Google Fonts CSS hasn't loaded yet) */
+        @font-face {
+            font-family: 'Crimson Pro';
+            font-display: swap;
+            src: local('Crimson Pro');
+        }
+        @font-face {
+            font-family: 'Nunito Sans';
+            font-display: swap;
+            src: local('Nunito Sans');
+        }
         /* ============================================
            CSS CUSTOM PROPERTIES
            ============================================ */
@@ -233,6 +254,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center 30%;
+            aspect-ratio: 16 / 9;
         }
 
         .hero__overlay {
@@ -380,6 +402,7 @@
             object-fit: cover;
             border-radius: var(--border-radius-lg);
             box-shadow: 0 8px 40px rgba(60, 50, 40, 0.12);
+            aspect-ratio: 600 / 420;
         }
 
         .relate__text h2 {
@@ -443,6 +466,10 @@
         .service-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 28px rgba(60, 50, 40, 0.1);
+        }
+
+        .service-card {
+            content-visibility: auto;
         }
 
         .service-icon {
@@ -520,6 +547,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center 40%;
+            aspect-ratio: 1920 / 400;
         }
 
         .trust-banner__overlay {
@@ -661,6 +689,7 @@
             object-fit: cover;
             border-radius: var(--border-radius);
             box-shadow: 0 4px 24px rgba(60, 50, 40, 0.1);
+            aspect-ratio: 1 / 1;
         }
 
         .contact__form-wrapper {
@@ -1005,7 +1034,7 @@
          ========================================== -->
     <section class="hero" id="home">
         <div class="hero__bg">
-            <img src="Rachels Photos/Rachel Brand Photo (Hero Image)" alt="Rachel Cooper sitting on a chair on a dirt road with mountains in the background" width="1920" height="1080">
+            <img src="Rachels Photos/Rachel Brand Photo (Hero Image)" alt="Rachel Cooper sitting on a chair on a dirt road with mountains in the background" width="1920" height="1080" fetchpriority="high">
         </div>
         <div class="hero__overlay"></div>
         <div class="hero__content">
@@ -1022,7 +1051,7 @@
     <section class="relate" id="about">
         <div class="relate__block reveal">
             <div class="relate__image">
-                <img src="Rachels Photos/Desktop Scene (Blurred Background)" alt="Dark moody desk workspace with laptop, keyboard, and lamp glow" width="600" height="420" loading="lazy">
+                <img src="Rachels Photos/Desktop Scene (Blurred Background)" alt="Dark moody desk workspace with laptop, keyboard, and lamp glow" width="600" height="420" loading="lazy" decoding="async">
             </div>
             <div class="relate__text">
                 <h2>I Know What It's Like</h2>
@@ -1038,7 +1067,7 @@
                 <p class="closing">That's what I want for you.</p>
             </div>
             <div class="relate__image">
-                <img src="Rachels Photos/Rachel Brand Photo 2" alt="Rachel walking on a dirt path with bag in hand" width="600" height="420" loading="lazy">
+                <img src="Rachels Photos/Rachel Brand Photo 2" alt="Rachel walking on a dirt path with bag in hand" width="600" height="420" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -1106,7 +1135,7 @@
     <section id="trust">
         <div class="trust-banner">
             <div class="trust-banner__bg">
-                <img src="Rachels Photos/Rachel Brand Photo 3" alt="Rachel standing on a bridge with green fields and mountains" width="1920" height="400" loading="lazy">
+                <img src="Rachels Photos/Rachel Brand Photo 3" alt="Rachel standing on a bridge with green fields and mountains" width="1920" height="400" loading="lazy" decoding="async">
             </div>
             <div class="trust-banner__overlay"></div>
             <div class="trust-banner__text">
@@ -1141,7 +1170,7 @@
                 <a href="tel:5412191828" class="contact__phone">Call or text: 541-219-1828</a>
                 <p class="contact__hours">Available Monday through Thursday, 7am to 3pm</p>
                 <div class="contact__image">
-                    <img src="Rachels Photos/Journal Business Card Flatlay" alt="Branded notebook with RC Bookkeeping sticker" width="200" height="200" loading="lazy">
+                    <img src="Rachels Photos/Journal Business Card Flatlay" alt="Branded notebook with RC Bookkeeping sticker" width="200" height="200" loading="lazy" decoding="async">
                 </div>
             </div>
             <div class="contact__form-wrapper reveal reveal-delay-1">

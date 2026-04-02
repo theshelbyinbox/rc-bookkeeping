@@ -1,0 +1,30 @@
+# Netlify Headers — Cache Policy for RC Bookkeeping
+# https://docs.netlify.com/routing/headers/
+
+# All pages — short cache, always revalidate
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Images — aggressive caching (1 year, immutable when possible)
+/Rachels Photos/*
+  Cache-Control: public, max-age=31536000, immutable
+  Content-Type: image/jpeg
+
+# PNG images (logo)
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML — no caching (always fetch latest)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS and JS files (if any are added later)
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
