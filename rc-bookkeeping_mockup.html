@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Bookkeeping | Honest Bookkeeping from Someone Who Gets It</title>
+    <meta name="description" content="Rachel Cooper Bookkeeping. 11 years serving Oregon business owners with honest, reliable bookkeeping services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           CSS CUSTOM PROPERTIES
+           ============================================ */
+        :root {
+            --teal: #375257;
+            --brown: #8C6C5A;
+            --gold: #C9A96E;
+            --rose: #C3937D;
+            --sage: #818275;
+            --cream: #F5F0EB;
+            --white: #FFFFFF;
+            --text: #3C3228;
+            --text-light: #6B5E52;
+
+            --font-heading: 'Crimson Pro', Georgia, serif;
+            --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+
+            --nav-height: 72px;
+            --section-pad: 100px;
+            --section-pad-mobile: 60px;
+            --max-width: 1140px;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --transition: 0.3s ease;
+        }
+
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--text);
+        }
+
+        h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 700; }
+        h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--teal);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav__logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav__links a {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            padding: 6px 0;
+            position: relative;
+            transition: color var(--transition);
+        }
+
+        .nav__links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width var(--transition);
+        }
+
+        .nav__links a:hover,
+        .nav__links a:focus {
+            color: var(--white);
+        }
+
+        .nav__links a:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .nav__links a:hover::after,
+        .nav__links a:focus::after {
+            width: 100%;
+        }
+
+        .nav__hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav__hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+        }
+
+        .nav__hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav__hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav__hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            padding: 0 24px calc(var(--section-pad) + 20px);
+            margin-top: var(--nav-height);
+            overflow: hidden;
+        }
+
+        .hero__bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero__bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+
+        .hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(15, 10, 6, 0.92) 0%,
+                rgba(20, 14, 8, 0.72) 30%,
+                rgba(20, 14, 8, 0.50) 55%,
+                rgba(20, 14, 8, 0.35) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+        }
+
+        .hero__tagline {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.35;
+        }
+
+        .hero__subtitle {
+            font-family: var(--font-body);
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 1px;
+            margin-bottom: 36px;
+        }
+
+        .btn {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 16px 40px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+            text-decoration: none;
+        }
+
+        .btn--gold {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(201, 169, 110, 0.35);
+        }
+
+        .btn--gold:hover,
+        .btn--gold:focus {
+            background: #b8993f;
+            box-shadow: 0 6px 28px rgba(201, 169, 110, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn--gold:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 2px 12px rgba(201, 169, 110, 0.3);
+        }
+
+        .btn--teal {
+            background: var(--teal);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(55, 82, 87, 0.3);
+        }
+
+        .btn--teal:hover,
+        .btn--teal:focus {
+            background: #2c4347;
+            box-shadow: 0 6px 28px rgba(55, 82, 87, 0.45);
+            transform: translateY(-2px);
+        }
+
+        .btn--teal:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 2px 12px rgba(55, 82, 87, 0.25);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: var(--teal);
+            border: 2px solid var(--teal);
+        }
+
+        .btn--outline:hover,
+        .btn--outline:focus {
+            background: var(--teal);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           SECTION 2: "I GET IT"
+           ============================================ */
+        .relate {
+            background: var(--white);
+            padding: var(--section-pad) 0;
+        }
+
+        .relate__block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .relate__block + .relate__block {
+            margin-top: 80px;
+        }
+
+        .relate__block--reverse .relate__image {
+            order: 2;
+        }
+
+        .relate__block--reverse .relate__text {
+            order: 1;
+        }
+
+        .relate__image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 8px 40px rgba(60, 50, 40, 0.12);
+        }
+
+        .relate__text h2 {
+            margin-bottom: 24px;
+            color: var(--teal);
+        }
+
+        .relate__text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .relate__text .highlight {
+            font-family: var(--font-heading);
+            font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+            font-weight: 600;
+            color: var(--teal);
+            line-height: 1.4;
+            margin: 24px 0;
+        }
+
+        .relate__text .closing {
+            font-style: italic;
+            color: var(--brown);
+            font-weight: 300;
+        }
+
+        /* ============================================
+           SECTION 3: WHAT YOU GET
+           ============================================ */
+        .services {
+            background: var(--cream);
+            padding: var(--section-pad) 0;
+        }
+
+        .services h2 {
+            text-align: center;
+            color: var(--teal);
+            margin-bottom: 48px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: var(--max-width);
+            margin: 0 auto 48px;
+            padding: 0 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 36px 28px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 12px rgba(60, 50, 40, 0.06);
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(60, 50, 40, 0.1);
+        }
+
+        .service-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+
+        .service-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: var(--white);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .services-pricing {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .services-pricing p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        .services-pricing strong {
+            color: var(--text);
+        }
+
+        /* ============================================
+           SECTION 4: TRUST BANNER + TESTIMONIALS
+           ============================================ */
+        .trust-banner {
+            position: relative;
+            height: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .trust-banner__bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .trust-banner__bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+        }
+
+        .trust-banner__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(55, 82, 87, 0.82);
+        }
+
+        .trust-banner__text {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 0 24px;
+        }
+
+        .trust-banner__text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--white);
+            line-height: 1.5;
+        }
+
+        .testimonials {
+            background: var(--white);
+            padding: 80px 0 var(--section-pad);
+        }
+
+        .testimonials__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            border-radius: var(--border-radius-lg);
+            padding: 44px 40px;
+            position: relative;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(60, 50, 40, 0.12);
+        }
+
+        .testimonial-card__quote {
+            font-family: var(--font-heading);
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-card p {
+            font-size: 17px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .testimonial-card__author {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--brown);
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================================
+           SECTION 5: CONTACT
+           ============================================ */
+        .contact {
+            background: var(--cream);
+            padding: var(--section-pad) 0;
+        }
+
+        .contact__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .contact__info h2 {
+            color: var(--teal);
+            margin-bottom: 20px;
+        }
+
+        .contact__info > p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 28px;
+        }
+
+        .contact__phone {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 8px;
+            transition: color var(--transition);
+        }
+
+        .contact__phone:hover {
+            color: var(--brown);
+        }
+
+        .contact__hours {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .contact__promise {
+            font-style: italic;
+            font-weight: 300;
+            color: var(--brown);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .contact__image img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 24px rgba(60, 50, 40, 0.1);
+        }
+
+        .contact__form-wrapper {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            padding: 44px 40px;
+            box-shadow: 0 4px 30px rgba(60, 50, 40, 0.08);
+        }
+
+        .contact__form-wrapper > p {
+            font-size: 15px;
+            color: var(--text-light);
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 16px;
+            padding: 14px 18px;
+            border: 1.5px solid #d9cfc6;
+            border-radius: 10px;
+            background: var(--white);
+            color: var(--text);
+            transition: border-color var(--transition), box-shadow var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(55, 82, 87, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .form-group .btn {
+            width: 100%;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--teal);
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .footer__logo img {
+            height: 50px;
+            width: auto;
+            margin: 0 auto 28px;
+        }
+
+        .footer__social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .footer__social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+        }
+
+        .footer__social a:hover,
+        .footer__social a:focus {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer__social svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .footer__copy {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 300;
+        }
+
+        /* ============================================
+           RESPONSIVE: 980px
+           ============================================ */
+        @media (max-width: 980px) {
+            :root {
+                --section-pad: 80px;
+            }
+
+            .relate__block {
+                gap: 40px;
+            }
+
+            .relate__image img {
+                height: 360px;
+            }
+
+            .contact__grid {
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE: 768px
+           ============================================ */
+        @media (max-width: 768px) {
+            :root {
+                --section-pad: 64px;
+                --nav-height: 64px;
+            }
+
+            .nav__links {
+                display: none;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--teal);
+                padding: 20px 24px 28px;
+                gap: 0;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            }
+
+            .nav__links.active {
+                display: flex;
+            }
+
+            .nav__links li {
+                width: 100%;
+            }
+
+            .nav__links a {
+                display: block;
+                padding: 14px 0;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+
+            .nav__links a::after {
+                display: none;
+            }
+
+            .nav__hamburger {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 75vh;
+                padding-bottom: 60px;
+            }
+
+            .relate__block {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .relate__block--reverse .relate__image {
+                order: 0;
+            }
+
+            .relate__block--reverse .relate__text {
+                order: 0;
+            }
+
+            .relate__image img {
+                height: 300px;
+            }
+
+            .testimonials__grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .contact__grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .trust-banner {
+                height: 280px;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE: 480px
+           ============================================ */
+        @media (max-width: 480px) {
+            :root {
+                --section-pad: 48px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding-bottom: 48px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero__tagline {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+
+            .relate__image img {
+                height: 250px;
+            }
+
+            .testimonial-card {
+                padding: 32px 28px;
+            }
+
+            .testimonial-card__quote {
+                font-size: 56px;
+            }
+
+            .contact__form-wrapper {
+                padding: 32px 24px;
+            }
+
+            .contact__image img {
+                width: 160px;
+                height: 160px;
+            }
+
+            .trust-banner {
+                height: 240px;
+            }
+
+            .btn {
+                padding: 14px 32px;
+                font-size: 14px;
+            }
+        }
+        /* ============================================
+           SCROLL REVEAL ANIMATION
+           ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+        }
+
+        .reveal.visible {
+            animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reveal-delay-1 { animation-delay: 0.1s; }
+        .reveal-delay-2 { animation-delay: 0.2s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+            }
+            .reveal.visible {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         NAVIGATION
+         ========================================== -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="nav__logo" aria-label="RC Bookkeeping Home">
+                <img src="RC Bookkeeping Logo - Transparent White.png" alt="RC Bookkeeping Logo" width="160" height="40">
+            </a>
+            <ul class="nav__links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#trust">Why Rachel</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav__hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==========================================
+         HERO
+         ========================================== -->
+    <section class="hero" id="home">
+        <div class="hero__bg">
+            <img src="Rachels Photos/2.jpg" alt="Rachel Cooper sitting on a chair on a dirt road with mountains in the background" width="1920" height="1080">
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <p class="hero__tagline">Your Neighbor. Your Bookkeeper.</p>
+            <h1>Honest bookkeeping from someone who understands your world -- because I grew up in it.</h1>
+            <p class="hero__subtitle">Rachel Cooper | 11 Years Serving Oregon Business Owners</p>
+            <a href="#about" class="btn btn--gold">Get to Know Me</a>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: "I GET IT"
+         ========================================== -->
+    <section class="relate" id="about">
+        <div class="relate__block reveal">
+            <div class="relate__image">
+                <img src="Rachels Photos/645169672_10234349086614735_2973557975821215988_n.jpg" alt="Dark moody desk workspace with laptop, keyboard, and lamp glow" width="600" height="420">
+            </div>
+            <div class="relate__text">
+                <h2>I Know What It's Like</h2>
+                <p>When you're running a business in a small town, you wear every hat. You're the owner, the manager, the marketer, and somehow you're also supposed to be the accountant.</p>
+                <p>I've watched good business owners lose sleep over books they don't have time to keep. I've seen tax season turn capable people into stressed-out messes.</p>
+            </div>
+        </div>
+
+        <div class="relate__block relate__block--reverse reveal">
+            <div class="relate__text">
+                <p>And I've seen what happens when someone finally hands those books over to someone who knows what they're doing.</p>
+                <p class="highlight">They breathe again.</p>
+                <p class="closing">That's what I want for you.</p>
+            </div>
+            <div class="relate__image">
+                <img src="Rachels Photos/4.jpg" alt="Rachel walking on a dirt path with bag in hand" width="600" height="420">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: WHAT I HANDLE
+         ========================================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Here's What I Can Take Off Your Plate</h2>
+            <div class="services-grid reveal">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 10h16"/><path d="M10 4v16"/></svg>
+                    </div>
+                    <h3>Monthly Bookkeeping</h3>
+                    <p>Every entry, every reconciliation. Your numbers, always current.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Payroll Processing</h3>
+                    <p>Correct, on time, completely off your plate.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 10h20"/><path d="M6 16h4"/></svg>
+                    </div>
+                    <h3>Bill Payment Management</h3>
+                    <p>Tracked, scheduled, never missed.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+                    </div>
+                    <h3>Tax Deposits &amp; Filings</h3>
+                    <p>Monthly, quarterly, year-end. All covered.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h3>W2s &amp; 1099s</h3>
+                    <p>Filed in January, done right.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Notary Services</h3>
+                    <p>Quick, easy, local.</p>
+                </div>
+            </div>
+            <div class="services-pricing reveal">
+                <p>Custom pricing based on what your business actually needs.</p>
+                <p><strong>Most clients pay between $200 and $500 a month.</strong> No hidden fees. No surprise charges.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: TRUST BANNER + TESTIMONIALS
+         ========================================== -->
+    <section id="trust">
+        <div class="trust-banner">
+            <div class="trust-banner__bg">
+                <img src="Rachels Photos/3.jpg" alt="Rachel standing on a bridge with green fields and mountains" width="1920" height="400">
+            </div>
+            <div class="trust-banner__overlay"></div>
+            <div class="trust-banner__text">
+                <h2>11 years. Dozens of businesses. Zero surprises on their tax returns.</h2>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <div class="testimonials__grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-card__quote">"</div>
+                    <p>Everything gets done on time. Rachel is a busy person but always adjusts her schedule to accommodate her clients. She even went out of her way and brought my books back to drop by our shop on her way to town this year. She goes above and beyond.</p>
+                    <div class="testimonial-card__author">Conley Kittredge</div>
+                </div>
+                <div class="testimonial-card reveal reveal-delay-1">
+                    <div class="testimonial-card__quote">"</div>
+                    <p>Rachel takes so much off of my plate that I don't have time for. Not to mention, she actually know's what she's doing so my taxes and bookkeeping actually get done right the first time, saving me a whole lot of time, stress and money in penalties and redo's!</p>
+                    <div class="testimonial-card__author">Shelby Manzano, Lakeside</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CONTACT
+         ========================================== -->
+    <section class="contact" id="contact">
+        <div class="contact__grid">
+            <div class="contact__info reveal">
+                <h2>Let's Talk About Your Business</h2>
+                <p>A 10-minute phone call is all it takes. Tell me what's on your plate, and I'll tell you honestly whether I can help -- and exactly what it would cost.</p>
+                <a href="tel:5412191828" class="contact__phone">Call or text: 541-219-1828</a>
+                <p class="contact__hours">Available Monday through Thursday, 7am to 3pm</p>
+                <div class="contact__image">
+                    <img src="Rachels Photos/634923711_10234172963451766_6315962356201763430_n.jpg" alt="Branded notebook with RC Bookkeeping sticker" width="200" height="200">
+                </div>
+            </div>
+            <div class="contact__form-wrapper reveal reveal-delay-1">
+                <p>Or drop me a message below and I'll get back to you within one business day.</p>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Tell me a little about your business and what you need help with..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn--teal">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="footer__logo">
+            <img src="RC Bookkeeping Logo - Transparent White.png" alt="RC Bookkeeping Logo" width="160" height="50">
+        </div>
+        <div class="footer__social">
+            <!-- Facebook -->
+            <a href="#" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <!-- Email -->
+            <a href="mailto:rachel@rcbookkeeping.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <!-- Phone -->
+            <a href="tel:5412191828" aria-label="Phone">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </a>
+        </div>
+        <p class="footer__copy">Rachel Cooper Bookkeeping. All rights reserved.</p>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close mobile menu on outside click
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Form handler (placeholder)
+        function handleSubmit(e) {
+            e.preventDefault();
+            var form = e.target;
+            var btn = form.querySelector('button[type="submit"]');
+            btn.textContent = 'Message Sent!';
+            btn.style.background = '#818275';
+            btn.disabled = true;
+            setTimeout(function() {
+                form.reset();
+                btn.textContent = 'Send Message';
+                btn.style.background = '';
+                btn.disabled = false;
+            }, 3000);
+        }
+
+        // Nav background change on scroll (subtle)
+        var nav = document.querySelector('.nav');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 40) {
+                nav.style.boxShadow = '0 2px 24px rgba(0,0,0,0.2)';
+            } else {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
+            }
+        });
+
+        // Scroll reveal — fade in sections as they enter the viewport
+        var revealElements = document.querySelectorAll('.reveal');
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealElements.forEach(function(el) {
+            revealObserver.observe(el);
+        });
+    </script>
+
+</body>
+</html>
