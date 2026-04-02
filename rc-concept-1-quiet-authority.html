@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RC Bookkeeping | Rachel Cooper</title>
+    <meta name="description" content="Professional bookkeeping services for small businesses and ranches in Lake County, Oregon and beyond. Monthly bookkeeping, payroll, tax filings, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           CSS CUSTOM PROPERTIES
+           ======================================== */
+        :root {
+            --teal: #375257;
+            --brown: #8C6C5A;
+            --gold: #C9A96E;
+            --rose: #C3937D;
+            --sage: #818275;
+            --cream: #F5F0EB;
+            --white: #FFFFFF;
+            --text: #3C3228;
+            --text-light: #6B5E52;
+
+            --font-heading: 'Crimson Pro', Georgia, serif;
+            --font-body: 'Nunito Sans', 'Segoe UI', sans-serif;
+
+            --nav-height: 72px;
+            --section-padding: 100px 0;
+            --container-width: 1140px;
+            --transition: 0.3s ease;
+        }
+
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-height);
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--cream);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.25;
+            color: var(--teal);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.85rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 3vw, 2.35rem);
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========================================
+           BUTTON
+           ======================================== */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            padding: 14px 36px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-align: center;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--text);
+        }
+
+        .btn-gold:hover,
+        .btn-gold:focus-visible {
+            background-color: #b8983f;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(201, 169, 110, 0.35);
+        }
+
+        .btn-gold:active {
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: var(--teal);
+            height: var(--nav-height);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.85);
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--white);
+            border-radius: 2px;
+            transition: all var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            background-color: var(--cream);
+            padding: 140px 0 100px;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .hero-text .bold-line {
+            font-weight: 700;
+            color: var(--teal);
+            font-size: 1.15rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 16px 48px rgba(55, 82, 87, 0.15);
+        }
+
+        /* ========================================
+           ABOUT / BRIDGE SECTION
+           ======================================== */
+        .about {
+            background-color: var(--white);
+            padding: var(--section-padding);
+        }
+
+        .about-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+            margin: 0 auto 2.5rem;
+            border-radius: 2px;
+        }
+
+        .about-photo {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 8px 32px rgba(55, 82, 87, 0.1);
+        }
+
+        .about-inner h2 {
+            margin-bottom: 1.75rem;
+        }
+
+        .about-inner p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+        .pull-quote {
+            border-left: 4px solid var(--gold);
+            padding: 1rem 0 1rem 1.5rem;
+            margin: 2rem 0 0;
+            text-align: left;
+        }
+
+        .pull-quote p {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--teal);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* ========================================
+           SERVICES SECTION
+           ======================================== */
+        .services {
+            background-color: var(--cream);
+            padding: var(--section-padding);
+        }
+
+        .services h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .service-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .service-check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            margin-top: 2px;
+        }
+
+        .service-check svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .service-item h3 {
+            color: var(--teal);
+            margin-bottom: 4px;
+        }
+
+        .service-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .services-image {
+            position: relative;
+        }
+
+        .services-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 12px 40px rgba(55, 82, 87, 0.12);
+        }
+
+        .services-footer {
+            text-align: center;
+            margin-top: 3.5rem;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-footer p {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .services-footer .small-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: -0.25rem;
+        }
+
+        /* ========================================
+           TESTIMONIALS SECTION
+           ======================================== */
+        .testimonials {
+            background-color: var(--white);
+            padding: var(--section-padding);
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background-color: var(--cream);
+            border-radius: 10px;
+            padding: 36px 32px;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--gold);
+            margin-bottom: -0.5rem;
+            display: block;
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .testimonial-card cite {
+            font-style: normal;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            display: block;
+        }
+
+        .stat-line {
+            text-align: center;
+            margin-top: 3.5rem;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            letter-spacing: 0.01em;
+        }
+
+        .stat-line strong {
+            color: var(--teal);
+        }
+
+        /* ========================================
+           CONTACT SECTION
+           ======================================== */
+        .contact {
+            background-color: var(--teal);
+            padding: var(--section-padding);
+        }
+
+        .contact-card {
+            background-color: var(--white);
+            max-width: 560px;
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 48px 44px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-intro {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-phone {
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-phone a {
+            font-family: var(--font-heading);
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--gold);
+            transition: color var(--transition);
+        }
+
+        .contact-phone a:hover,
+        .contact-phone a:focus-visible {
+            color: #b8983f;
+        }
+
+        .contact-hours {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-or {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: 0.02em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            padding: 12px 16px;
+            border: 1.5px solid #D9CCC4;
+            border-radius: 6px;
+            background-color: var(--white);
+            color: var(--text);
+            transition: border-color var(--transition), box-shadow var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(55, 82, 87, 0.1);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #B5A99D;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 8px;
+            font-size: 1rem;
+            padding: 16px;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background-color: #2C4347;
+            padding: 48px 0 32px;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            height: 36px;
+            margin: 0 auto 24px;
+            opacity: 0.85;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            transition: background-color var(--transition);
+        }
+
+        .footer-social a:hover,
+        .footer-social a:focus-visible {
+            background-color: rgba(255, 255, 255, 0.16);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            fill: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.02em;
+        }
+
+        /* ========================================
+           RESPONSIVE: 980px
+           ======================================== */
+        @media (max-width: 980px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-image img {
+                height: 380px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .services-image img {
+                min-height: 360px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .testimonials-grid .testimonial-card:last-child {
+                grid-column: 1 / -1;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE: 768px
+           ======================================== */
+        @media (max-width: 768px) {
+            :root {
+                --nav-height: 64px;
+                --section-padding: 72px 0;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 260px;
+                height: 100vh;
+                background-color: var(--teal);
+                flex-direction: column;
+                justify-content: center;
+                gap: 32px;
+                padding: 24px;
+                transition: right var(--transition);
+                box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.95rem;
+                color: rgba(255, 255, 255, 0.9);
+            }
+
+            .hero {
+                padding: 110px 0 72px;
+            }
+
+            .hero-image img {
+                height: 320px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid .testimonial-card:last-child {
+                max-width: none;
+            }
+
+            .contact-card {
+                padding: 36px 28px;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE: 480px
+           ======================================== */
+        @media (max-width: 480px) {
+            :root {
+                --section-padding: 56px 0;
+            }
+
+            body {
+                font-size: 15px;
+            }
+
+            .hero {
+                padding: 96px 0 56px;
+            }
+
+            .hero-image img {
+                height: 260px;
+            }
+
+            .about-photo {
+                width: 200px;
+                height: 200px;
+            }
+
+            .service-item {
+                gap: 12px;
+            }
+
+            .contact-card {
+                padding: 28px 20px;
+            }
+
+            .contact-phone a {
+                font-size: 1.35rem;
+            }
+
+            .testimonial-card {
+                padding: 28px 24px;
+            }
+        }
+
+        /* ========================================
+           MOBILE MENU OVERLAY
+           ======================================== */
+        .nav-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+        }
+
+        .nav-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         NAVIGATION
+         ========================================== -->
+    <nav class="nav" id="nav">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <img src="RC Bookkeeping Logo - Transparent White.png" alt="RC Bookkeeping">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
+
+    <!-- ==========================================
+         SECTION 1: HERO
+         ========================================== -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>You didn't start your business to spend your evenings buried in spreadsheets.</h1>
+                <p>You started it because you're good at what you do -- whether that's running cattle, building houses, or keeping a shop alive in a small town. The books? They were never supposed to be the hard part.</p>
+                <p>But here you are. Receipts piling up. Tax season creeping closer. That knot in your stomach when you're not sure if the numbers are right.</p>
+                <p class="bold-line">That's where I come in.</p>
+                <a href="#contact" class="btn btn-gold">Let's Talk</a>
+            </div>
+            <div class="hero-image">
+                <img src="Rachels Photos/1.jpg" alt="Rachel Cooper, professional bookkeeper based in Lake County, Oregon">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: ABOUT / THE BRIDGE
+         ========================================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-inner">
+                <div class="gold-line"></div>
+                <h2>Meet Rachel Cooper</h2>
+                <img src="Rachels Photos/3.jpg" alt="Rachel Cooper on a bridge in rural Oregon" class="about-photo">
+                <p>I grew up on the ZX Ranch right here in Oregon. I learned early that nothing runs right if the books don't add up -- whether you're tracking head count or cash flow.</p>
+                <p>Today, I help business owners across Lake County and beyond get their finances in order so they can stop worrying and start making decisions with real numbers in front of them.</p>
+                <div class="pull-quote">
+                    <p>When your books are clean, you can see your business clearly for the first time. That's what I'm here to give you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: SERVICES
+         ========================================== -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>What I Handle for You</h2>
+            <div class="services-grid">
+                <div class="service-list">
+
+                    <div class="service-item">
+                        <div class="service-check">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="14" cy="14" r="14" fill="#375257"/>
+                                <path d="M8 14.5L12 18.5L20 10.5" stroke="#F5F0EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Monthly Bookkeeping</h3>
+                            <p>Every transaction entered, every account reconciled. You'll know exactly where your money went.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-check">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="14" cy="14" r="14" fill="#375257"/>
+                                <path d="M8 14.5L12 18.5L20 10.5" stroke="#F5F0EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Payroll</h3>
+                            <p>Your team gets paid correctly and on time. You don't have to think about it.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-check">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="14" cy="14" r="14" fill="#375257"/>
+                                <path d="M8 14.5L12 18.5L20 10.5" stroke="#F5F0EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Bill Payment Management</h3>
+                            <p>Bills tracked, scheduled, and paid before they're late.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-check">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="14" cy="14" r="14" fill="#375257"/>
+                                <path d="M8 14.5L12 18.5L20 10.5" stroke="#F5F0EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Tax Deposits & Filings</h3>
+                            <p>Monthly deposits, quarterly reports, year-end W2s and 1099s. All handled.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-check">
+                            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="14" cy="14" r="14" fill="#375257"/>
+                                <path d="M8 14.5L12 18.5L20 10.5" stroke="#F5F0EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Notary Services</h3>
+                            <p>Need a document signed? I can do that too.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="services-image">
+                    <img src="Rachels Photos/637755172_10234207114545522_2304888528478418644_n.jpg" alt="Rachel Cooper standing on building steps with leather bag">
+                </div>
+            </div>
+            <div class="services-footer">
+                <p>Every business is different, so every quote is custom. Most clients pay between $200 and $500 a month -- and you only pay for what you need.</p>
+                <p class="small-text">Nothing more, nothing less.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: TESTIMONIALS
+         ========================================== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2>What My Clients Say</h2>
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <span class="quote-mark">"</span>
+                    <blockquote>Rachel took over our books and within two months I actually understood where our money was going. I wish I'd called her years ago.</blockquote>
+                    <cite>-- Sarah M., Small Business Owner</cite>
+                </div>
+
+                <div class="testimonial-card">
+                    <span class="quote-mark">"</span>
+                    <blockquote>I used to dread tax season. Now I don't even think about it. Rachel has it handled before I even ask.</blockquote>
+                    <cite>-- Jake T., Rancher</cite>
+                </div>
+
+                <div class="testimonial-card">
+                    <span class="quote-mark">"</span>
+                    <blockquote>She's honest, she's thorough, and she actually calls you back. That matters out here.</blockquote>
+                    <cite>-- Lisa K., Lake County</cite>
+                </div>
+
+            </div>
+            <p class="stat-line"><strong>11 years in business.</strong> Dozens of clients served. <strong>Zero surprises</strong> on their tax returns.</p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CONTACT / CTA
+         ========================================== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <h2>Let's Figure Out What You Need</h2>
+                <p class="contact-intro">No pressure, no commitment. Just a real conversation about where your books are and how I can help.</p>
+                <p class="contact-phone"><a href="tel:5412191828">Call or text: 541-219-1828</a></p>
+                <p class="contact-hours">Available Monday through Thursday, 7am to 3pm</p>
+                <p class="contact-or">Or drop me a message below and I'll get back to you within one business day.</p>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me a little about your business and what you need help with..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gold">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <img src="RC Bookkeeping Logo - Transparent White.png" alt="RC Bookkeeping">
+            </div>
+            <div class="footer-social">
+                <!-- Facebook -->
+                <a href="#" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <!-- Email -->
+                <a href="mailto:rachel@rcbookkeeping.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+                <!-- Phone -->
+                <a href="tel:5412191828" aria-label="Phone">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-copy">Rachel Cooper Bookkeeping. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
+    <script>
+        // Mobile hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+            navOverlay.classList.toggle('active');
+            const isOpen = navLinks.classList.contains('open');
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        navOverlay.addEventListener('click', toggleMenu);
+
+        // Close menu when a nav link is clicked
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                if (navLinks.classList.contains('open')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Form submission handler (placeholder)
+        function handleSubmit(e) {
+            e.preventDefault();
+            var btn = e.target.querySelector('button[type="submit"]');
+            var originalText = btn.textContent;
+            btn.textContent = 'Message Sent!';
+            btn.style.backgroundColor = 'var(--teal)';
+            btn.style.color = 'var(--white)';
+            btn.disabled = true;
+            setTimeout(function() {
+                btn.textContent = originalText;
+                btn.style.backgroundColor = '';
+                btn.style.color = '';
+                btn.disabled = false;
+                e.target.reset();
+            }, 3000);
+        }
+
+        // Subtle nav shadow on scroll
+        var nav = document.getElementById('nav');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 10) {
+                nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
+            } else {
+                nav.style.boxShadow = '0 2px 12px rgba(0, 0, 0, 0.15)';
+            }
+        });
+    </script>
+</body>
+</html>
